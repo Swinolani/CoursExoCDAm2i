@@ -349,3 +349,100 @@ function saisieNote() {
   }
   // AFFICHE LA LISTE ICI
 }
+
+// Exo 33
+const demarrer = document.getElementById("lance");
+demarrer.style.backgroundColor = "green";
+const h1 = document.getElementById("chrono");
+const reset = document.getElementById("reset");
+reset.style.backgroundColor = "red";
+const checkPoint = document.getElementById("check");
+checkPoint.style.backgroundColor = "lightblue";
+const table = document.getElementById("table");
+let id = 0;
+let hours = 0;
+let min = 0;
+let sec = 0;
+let secInvisible = 0;
+let ms = 0;
+let chrono;
+h1.textContent = `${hours < 10 ? "0" + hours : hours}h ${
+  min < 10 ? "0" + min : min
+}m ${sec < 10 ? "0" + sec : sec}s ${ms < 10 ? "0" + ms : ms}\n`;
+demarrer.addEventListener("click", function () {
+  if (demarrer.textContent == "Lancer") {
+    chronoInvisible = setInterval(() => {
+      secInvisible++;
+    }, 1000);
+    chrono = setInterval(() => {
+      ms++;
+      if (ms === 100) {
+        sec++;
+        ms = 0;
+      }
+      if (sec === 60) {
+        min++;
+        sec = 0;
+      }
+      if (min === 60) {
+        hours++;
+        min = 0;
+      }
+      h1.textContent = `${hours < 10 ? "0" + hours : hours}h ${
+        min < 10 ? "0" + min : min
+      }m ${sec < 10 ? "0" + sec : sec}s ${ms < 10 ? "0" + ms : ms}\n`;
+    }, 10);
+    demarrer.textContent = "Aretter";
+    demarrer.style.backgroundColor = "orange";
+  } else if (demarrer.textContent == "Aretter") {
+    clearInterval(chrono);
+    clearInterval(chronoInvisible);
+    demarrer.textContent = "Lancer";
+    demarrer.style.backgroundColor = "green";
+  }
+});
+reset.addEventListener("click", function () {
+  clearInterval(chrono);
+  clearInterval(chronoInvisible);
+  hours = 0;
+  min = 0;
+  sec = 0;
+  ms = 0;
+  id = 0;
+  secInvisible = 0;
+  h1.textContent = `${hours < 10 ? "0" + hours : hours}h ${
+    min < 10 ? "0" + min : min
+  }m ${sec < 10 ? "0" + sec : sec}s ${ms < 10 ? "0" + ms : ms}\n`;
+  demarrer.textContent = "Lancer";
+  for (let i = table.childElementCount - 1; i > 0; i--) {
+    table.deleteRow(i);
+  }
+});
+checkPoint.addEventListener("click", function (e) {
+  if (demarrer.textContent == "Aretter") {
+    id++;
+    let tr = document.createElement("tr");
+    let tdId = document.createElement("td");
+    let tdHeure = document.createElement("td");
+    let tdMinute = document.createElement("td");
+    let tdSeconde = document.createElement("td");
+    let tdMs = document.createElement("td");
+    let tdIncrementSeconde = document.createElement("td");
+    tdId.textContent = id;
+    tdHeure.textContent = hours;
+    tdMinute.textContent = min;
+    tdSeconde.textContent = sec;
+    tdMs.textContent = ms;
+    tdIncrementSeconde.textContent = `+${secInvisible} secondes`;
+    secInvisible = 0;
+    tr.appendChild(tdId);
+    tr.appendChild(tdHeure);
+    tr.appendChild(tdMinute);
+    tr.appendChild(tdSeconde);
+    tr.appendChild(tdMs);
+    tr.appendChild(tdIncrementSeconde);
+    table.appendChild(tr);
+  } else {
+    e.preventDefault();
+  }
+});

@@ -86,6 +86,9 @@ function chercher_mot_6_lettres(lettres) {
   );
 }
 // --------------------
+
+// Corps du code pour les lettres
+
 listechiffre = new RegExp("[0-9]");
 melangeLettre = prompt("entrez vos lettre collé et en minuscule");
 while (
@@ -102,4 +105,7 @@ chercher_mot_9_lettres(melangeLettre);
 chercher_mot_8_lettres(melangeLettre);
 chercher_mot_7_lettres(melangeLettre);
 chercher_mot_6_lettres(melangeLettre);
+
+// ---------------------------------------------
+
 // EZZZZZZZZZZZZZZZZZZZZZZZZ :)

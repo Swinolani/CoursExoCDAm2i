@@ -3,39 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./class.css" />
     <title>class</title>
   </head>
   <body>
-    <input
-      type="text"
-      name="nom"
-      id="nom"
-      placeholder="nom du chat"
-      required
-    /><br />
-    <input
-      type="text"
-      name="age"
-      id="age"
-      placeholder="âge du chat"
-      required
-    /><br />
-    <input
-      type="text"
-      name="race"
-      id="race"
-      placeholder="race du chat"
-      required
-    /><br />
-    <button id="valide">Valider</button><br /><br />
-
+    <div id="modal">
+      <form action="">
+        <h1>Formulaire</h1>
+        <input
+          type="text"
+          name="nom"
+          id="nom"
+          placeholder="nom de la personne"
+          required
+        /><br />
+        <input
+          type="text"
+          name="prenom"
+          id="prenom"
+          placeholder="prenom de la personne"
+          required
+        /><span id="erreur"></span><br />
+        <input
+          type="date"
+          name="naissance"
+          id="naissance"
+          placeholder="naissance de la personne"
+          required
+        /><br />
+        <button id="valide">Valider</button><br /><br />
+      </form>
+    </div>
+    <button id="affiche">AFFICHER LE FORMULAIRE</button>
     <table id="table">
       <tr>
+        <th>id</th>
         <th>NOM</th>
-        <th>AGE</th>
-        <th>RACE</th>
+        <th>PRENOM</th>
+        <th>NAISSANCE</th>
+        <th></th>
       </tr>
     </table>
-    <script type="module" src="class.js"></script>
+    <select name="trier" id="trier">
+      <option value="croissant">Croissant</option>
+      <option value="décroissant">Décroissant</option>
+    </select>
+    <script type="module" src="./class.js"></script>
   </body>
 </html>

@@ -19,7 +19,7 @@ calcul.innerHTML = `${result1 < 10 ? `0${result1}` : result1} × ${
 // Début des festivités
 document.addEventListener("keyup", function (e) {
   if (e.key == "Enter") {
-    const result = document.getElementById("result");
+    let result = document.getElementById("result");
     if (valider.textContent == "Valider") {
       if (parseInt(result.value) == result1 * result2) {
         result.value = "";
