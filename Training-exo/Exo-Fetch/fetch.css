@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  box-sizing: border-box;
+}
+#card {
+  background-color: rgb(204, 202, 202);
+  border: 1px solid rgba(0, 0, 0, 0.356);
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 10px;
+  padding-right: 0;
+
+  height: 50%;
+}
+#img {
+  /* background-color: blue; */
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
+  margin-right: 2px;
+  background-color: aliceblue;
+}
+#nom {
+  grid-column: 3 / span 2;
+}
+#types {
+  grid-column: 3 / span 2;
+  grid-row: 3;
+}
+h2,
+p {
+  margin: 0;
+}
+#card {
+  height: 400px;
+  width: 300px;
+}
+#capacites {
+  height: 50%;
+}
+.containerInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerInput > input {
+  padding-right: 42px;
+  height: 2rem;
+}
+.containerInput > button {
+  height: 2rem;
+}
+#nom,
+#taille,
+#poids,
+#types,
+#capacites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#img > img {
+  width: 95%;
+  height: 100%;
+}
+#capacites {
+  background-color: rgba(0, 0, 0, 0.356);
+}
+#poids,
+#taille {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+#Left-Arrow,
+#Right-Arrow {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(63, 235, 63);
+  box-shadow: inset 1px 1px 2px white;
+}
+.contientFleche {
+  width: 12%;
+  margin: 0 auto;
+}
