@@ -1,4 +1,5 @@
 <template>
+  <h1>{{ useIndexStore.prenoms[0] }}</h1>
   <h1>{{ bonCustomer[0].name }}</h1>
   <p>name : {{ bonCustomer[0].name }}</p>
   <p>Email : {{ bonCustomer[0].email }}</p>
@@ -15,6 +16,9 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import { inject } from "vue";
+import { monStore } from "../shared/stores/indexStore";
+
+const useIndexStore = monStore();
 
 const route = useRoute();
 const prenomTarget = route.params.prenom;
